@@ -1,13 +1,12 @@
+---https://github.com/TeX-Live/luatex/blob/trunk/source/texk/web2c/luatexdir/luasocket/src/mime.lua
+---Changes to upstream: global mime table
+
+---
 ---@meta
+---The definitions are developed in this repository: https://github.com/LuaCATS/luasocket
 
 ---
----https://github.com/LuaCATS/luasocket/blob/main/library/mime.lua
----https://github.com/TeX-Live/luatex/blob/trunk/source/texk/web2c/luatexdir/luasocket/src/mime.lua
-mime = {}
-
----
---- https://lunarmodules.github.io/luasocket/mime.html
----https://github.com/TeX-Live/luatex/blob/trunk/source/texk/web2c/luatexdir/luasocket/src/mime.lua
+---https://lunarmodules.github.io/luasocket/mime.html
 ---
 ---The `mime` namespace offers filters that apply and remove common
 ---content transfer encodings, such as Base64 and Quoted-Printable.
@@ -31,7 +30,7 @@ mime = {}
 ----- loads the MIME module and everything it requires
 ---local mime = require("mime")
 ---```
-local mime = {}
+mime = {}
 
 ---
 ---Returns a filter that decodes data from a given transfer content
@@ -279,3 +278,5 @@ function mime.unqp() end
 ---marker.
 ---
 function mime.wrp() end
+
+return mime
