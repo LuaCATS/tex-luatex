@@ -2265,7 +2265,7 @@ function tex.setmathcode(global, n, math_code) end
 ---
 ---@param n integer
 ---@param math_code MathCode
-function tex.setmathcode( n, math_code) end
+function tex.setmathcode(n, math_code) end
 
 ---
 ---* Corresponding C source code: [ltexlib.c#L1563-L1577](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1563-L1577)
@@ -2323,7 +2323,7 @@ function tex.setdelcode(global, n, small_family, small_character, large_family, 
 ---@param small_character integer
 ---@param large_family integer
 ---@param large_character integer
-function tex.setdelcode( n, small_family, small_character, large_family, large_character) end
+function tex.setdelcode(n, small_family, small_character, large_family, large_character) end
 
 ---
 ---* Corresponding C source code: [ltexlib.c#L1640-L1681](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1640-L1681)
@@ -3117,7 +3117,7 @@ function tex.sp(s) end
 ---
 ---During this error, deletions are disabled.
 ---
-  ---see `LuaTeX` manual: 10.3.15.5 `sp`
+---see `LuaTeX` manual: 10.3.15.5 `sp`
 ---
 ---__Reference:__
 ---
