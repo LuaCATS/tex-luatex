@@ -3,7 +3,41 @@
 ---outline: https://github.com/Josef-Friedrich/LuaTeX_Lua-API#navigation-table-_n
 _N = {}
 
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex = {}
+
+---
+---Set the given TeX parameter.
+---
+---When you set a glue quantity you can either pass a `glue_spec` or upto five numbers.
+---It is possible to use `global` as the first argument to `tex.set`; this makes the assignment global instead of local.
+---
+---* Corresponding C source code: [ltexlib.c#L1714-L1813](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1714-L1813)
+---
+---@param parameter string
+---@param ... any
+function tex.set(parameter, ...) end
+
+---
+---Query the given TeX parameter.
+---
+---The return value
+---is a `glue_spec` node but when you pass `false` as last argument to
+---`tex.get` you get the width of the glue and when you pass `true` you
+---get all five values. Otherwise you get a node which is a copy of the internal
+---value so you are responsible for its freeing at the *Lua* end.
+---
+--- If
+---you pass `true` to `get` you get 5 values returned for a glue and
+---when you pass `false` you only get the width returned.
+---
+---* Corresponding C source code: [ltexlib.c#L2120-L2200](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L2120-L2200)
+---@param parameter string
+---@param opts boolean
+---
+---@return any ...
+function tex.get(parameter, opts) end
 
 ---
 ---`\adjdemerits`: Penalty for adjacent visually incompatible lines. Plain TEX default: 10 000.
@@ -13,6 +47,8 @@ tex = {}
 ---* [TeX by Topic, page 175](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.adjdemerits = 0
 
 ---
@@ -23,6 +59,8 @@ tex.adjdemerits = 0
 ---* [TeX by Topic, page 201](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.binoppenalty = 0
 
 ---
@@ -33,10 +71,14 @@ tex.binoppenalty = 0
 ---* [TeX by Topic, page 226](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.brokenpenalty = 0
 
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.catcodetable = 0
 
 ---
@@ -47,6 +89,8 @@ tex.catcodetable = 0
 ---* [TeX by Topic, page 227](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.clubpenalty = 0
 
 ---
@@ -57,6 +101,8 @@ tex.clubpenalty = 0
 ---* [TeX by Topic, page 257](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.day = 0
 
 ---
@@ -67,6 +113,8 @@ tex.day = 0
 ---* [TeX by Topic, page 52](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.defaulthyphenchar = 0
 
 ---
@@ -77,6 +125,8 @@ tex.defaulthyphenchar = 0
 ---* [TeX by Topic, page 190](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.defaultskewchar = 0
 
 ---
@@ -87,6 +137,8 @@ tex.defaultskewchar = 0
 ---* [TeX by Topic, page 190](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.delimiterfactor = 0
 
 ---
@@ -97,6 +149,8 @@ tex.delimiterfactor = 0
 ---* [TeX by Topic, page 229](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.displaywidowpenalty = 0
 
 ---
@@ -107,11 +161,15 @@ tex.displaywidowpenalty = 0
 ---* [TeX by Topic, page 175](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.doublehyphendemerits = 0
 
 ---
 ---`\endlinechar`: The character code of the end-of-line character appended to input lines. IniTEX default: 13.
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.endlinechar = 0
 
 ---
@@ -122,6 +180,8 @@ tex.endlinechar = 0
 ---* [TeX by Topic, page 272](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.errorcontextlines = 0
 
 ---
@@ -132,6 +192,8 @@ tex.errorcontextlines = 0
 ---* [TeX by Topic, page 43](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.escapechar = 0
 
 ---
@@ -142,6 +204,8 @@ tex.escapechar = 0
 ---* [TeX by Topic, page 175](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.exhyphenpenalty = 0
 
 ---
@@ -152,6 +216,8 @@ tex.exhyphenpenalty = 0
 ---* [TeX by Topic, page 196](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.fam = 0
 
 ---
@@ -162,6 +228,8 @@ tex.fam = 0
 ---* [TeX by Topic, page 175](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.finalhyphendemerits = 0
 
 ---
@@ -172,6 +240,8 @@ tex.finalhyphendemerits = 0
 ---* [TeX by Topic, page 240](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.floatingpenalty = 0
 
 ---
@@ -185,6 +255,8 @@ tex.floatingpenalty = 0
 ---* [Wikibook/TeX](https://en.wikibooks.org/wiki/TeX/globaldefs)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.globaldefs = 0
 
 ---
@@ -198,6 +270,8 @@ tex.globaldefs = 0
 ---* [TeX by Topic, page 170](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.hangafter = 0
 
 ---
@@ -208,6 +282,8 @@ tex.hangafter = 0
 ---* [TeX by Topic, page 57](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.hbadness = 0
 
 ---
@@ -218,6 +294,8 @@ tex.hbadness = 0
 ---* [TeX by Topic, page 240](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.holdinginserts = 0
 
 ---
@@ -228,6 +306,8 @@ tex.holdinginserts = 0
 ---* [TeX by Topic, page 175](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.hyphenpenalty = 0
 
 ---
@@ -238,6 +318,8 @@ tex.hyphenpenalty = 0
 ---* [TeX by Topic, page 57](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.interlinepenalty = 0
 
 ---
@@ -248,10 +330,14 @@ tex.interlinepenalty = 0
 ---* [TeX by Topic, page 176](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.language = 0
 
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.lastlinefit = 0
 
 ---
@@ -262,6 +348,8 @@ tex.lastlinefit = 0
 ---* [TeX by Topic, page 175](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.lefthyphenmin = 0
 
 ---
@@ -272,14 +360,20 @@ tex.lefthyphenmin = 0
 ---* [TeX by Topic, page 175](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.linepenalty = 0
 
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.localbrokenpenalty = 0
 
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.localinterlinepenalty = 0
 
 ---
@@ -290,6 +384,8 @@ tex.localinterlinepenalty = 0
 ---* [TeX by Topic, page 175](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.looseness = 0
 
 ---
@@ -300,6 +396,8 @@ tex.looseness = 0
 ---* [TeX by Topic, page 257](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.mag = 0
 
 ---
@@ -310,6 +408,8 @@ tex.mag = 0
 ---* [TeX by Topic, page 288](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.maxdeadcycles = 0
 
 ---
@@ -320,6 +420,8 @@ tex.maxdeadcycles = 0
 ---* [TeX by Topic, page 257](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.month = 0
 
 ---
@@ -330,6 +432,8 @@ tex.month = 0
 ---* [TeX by Topic, page 246](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.newlinechar = 0
 
 ---
@@ -340,6 +444,8 @@ tex.newlinechar = 0
 ---* [TeX by Topic, page 289](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.outputpenalty = 0
 
 ---
@@ -350,6 +456,8 @@ tex.outputpenalty = 0
 ---* [TeX by Topic, page 246](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pausing = 0
 
 ---
@@ -360,10 +468,14 @@ tex.pausing = 0
 ---* [TeX by Topic, page 210](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.postdisplaypenalty = 0
 
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.predisplaydirection = 0
 
 ---
@@ -374,6 +486,8 @@ tex.predisplaydirection = 0
 ---* [TeX by Topic, page 210](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.predisplaypenalty = 0
 
 ---
@@ -384,6 +498,8 @@ tex.predisplaypenalty = 0
 ---* [TeX by Topic, page 175](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pretolerance = 0
 
 ---
@@ -394,6 +510,8 @@ tex.pretolerance = 0
 ---* [TeX by Topic, page 201](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.relpenalty = 0
 
 ---
@@ -404,14 +522,20 @@ tex.relpenalty = 0
 ---* [TeX by Topic, page 201](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.righthyphenmin = 0
 
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.savinghyphcodes = 0
 
 ---
--- @type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.savingvdiscards = 0
 
 ---
@@ -422,6 +546,8 @@ tex.savingvdiscards = 0
 ---* [TeX by Topic, page 267](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.showboxbreadth = 0
 
 ---
@@ -432,6 +558,8 @@ tex.showboxbreadth = 0
 ---* [TeX by Topic, page 267](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.showboxdepth = 0
 
 ---
@@ -442,6 +570,8 @@ tex.showboxdepth = 0
 ---* [TeX by Topic, page 257](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.time = 0
 
 ---
@@ -452,10 +582,14 @@ tex.time = 0
 ---* [TeX by Topic, page 175](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.tolerance = 0
 
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.tracingassigns = 0
 
 ---
@@ -466,14 +600,20 @@ tex.tracingassigns = 0
 ---* [TeX by Topic, page 267](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.tracingcommands = 0
 
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.tracinggroups = 0
 
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.tracingifs = 0
 
 ---
@@ -484,6 +624,8 @@ tex.tracingifs = 0
 ---* [TeX by Topic, page 268](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.tracinglostchars = 0
 
 ---
@@ -494,6 +636,8 @@ tex.tracinglostchars = 0
 ---* [TeX by Topic, page 293](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.tracingmacros = 0
 
 ---
@@ -508,6 +652,8 @@ tex.tracingnesting = 0
 ---* [TeX by Topic, page 267](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.tracingonline = 0
 
 ---
@@ -518,6 +664,8 @@ tex.tracingonline = 0
 ---* [TeX by Topic, page 267](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.tracingoutput = 0
 
 ---
@@ -528,6 +676,8 @@ tex.tracingoutput = 0
 ---* [TeX by Topic, page 57](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.tracingpages = 0
 
 ---
@@ -538,6 +688,8 @@ tex.tracingpages = 0
 ---* [TeX by Topic, page 57](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.tracingparagraphs = 0
 
 ---
@@ -548,10 +700,14 @@ tex.tracingparagraphs = 0
 ---* [TeX by Topic, page 57](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.tracingrestores = 0
 
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.tracingscantokens = 0
 
 ---
@@ -562,6 +718,8 @@ tex.tracingscantokens = 0
 ---* [TeX by Topic, page 268](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.tracingstats = 0
 
 ---
@@ -572,6 +730,8 @@ tex.tracingstats = 0
 ---* [TeX by Topic, page 57](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.uchyph = 0
 
 ---
@@ -582,6 +742,8 @@ tex.uchyph = 0
 ---* [TeX by Topic, page 57](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.hbadness = 0
 
 ---
@@ -592,6 +754,8 @@ tex.hbadness = 0
 ---* [TeX by Topic, page 57](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.vbadness = 0
 
 ---
@@ -602,6 +766,8 @@ tex.vbadness = 0
 ---* [TeX by Topic, page 226](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.widowpenalty = 0
 
 ---
@@ -612,6 +778,8 @@ tex.widowpenalty = 0
 ---* [TeX by Topic, page 257](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable integer parameter that accepts and returns Lua numbers.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.year = 0
 
 ---
@@ -622,6 +790,8 @@ tex.year = 0
 ---* [TeX by Topic, page 234](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A read-only integer parameter that returns a Lua number.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.deadcycles = 0
 
 ---
@@ -632,6 +802,8 @@ tex.deadcycles = 0
 ---* [TeX by Topic, page 240](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A read-only integer parameter that returns a Lua number.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.insertpenalties = 0
 
 ---
@@ -641,22 +813,32 @@ tex.insertpenalties = 0
 ---* [TeX by Topic, page 170](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A read-only integer parameter that returns a Lua number.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.parshape = 0
 
 ---
 ---@type integer # A read-only integer parameter that returns a Lua number.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.interlinepenalties = 0
 
 ---
 ---@type integer # A read-only integer parameter that returns a Lua number.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.clubpenalties = 0
 
 ---
 ---@type integer # A read-only integer parameter that returns a Lua number.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.widowpenalties = 0
 
 ---
 ---@type integer # A read-only integer parameter that returns a Lua number.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.displaywidowpenalties = 0
 
 ---
@@ -667,6 +849,8 @@ tex.displaywidowpenalties = 0
 ---* [TeX by Topic, page 175](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A read-only integer parameter that returns a Lua number.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.prevgraf = 0
 
 ---
@@ -677,6 +861,8 @@ tex.prevgraf = 0
 ---* [TeX by Topic, page 185](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A read-only integer parameter that returns a Lua number.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.spacefactor = 0
 
 ---
@@ -687,6 +873,8 @@ tex.spacefactor = 0
 ---* [TeX by Topic, page 57](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.boxmaxdepth = 0
 
 ---
@@ -697,6 +885,8 @@ tex.boxmaxdepth = 0
 ---* [TeX by Topic, page 190](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.delimitershortfall = 0
 
 ---
@@ -707,6 +897,8 @@ tex.delimitershortfall = 0
 ---* [TeX by Topic, page 210](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.displayindent = 0
 
 ---
@@ -717,6 +909,8 @@ tex.displayindent = 0
 ---* [TeX by Topic, page 210](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.displaywidth = 0
 
 ---
@@ -727,6 +921,8 @@ tex.displaywidth = 0
 ---* [TeX by Topic, page 175](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.emergencystretch = 0
 
 ---
@@ -737,6 +933,8 @@ tex.emergencystretch = 0
 ---* [TeX by Topic, page 170](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.hangindent = 0
 
 ---
@@ -747,6 +945,8 @@ tex.hangindent = 0
 ---* [TeX by Topic, page 57](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.hfuzz = 0
 
 ---
@@ -757,6 +957,8 @@ tex.hfuzz = 0
 ---* [TeX by Topic, page 224](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.hoffset = 0
 
 ---
@@ -767,6 +969,8 @@ tex.hoffset = 0
 ---* [TeX by Topic, page 170](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.hsize = 0
 
 ---
@@ -777,6 +981,8 @@ tex.hsize = 0
 ---* [TeX by Topic, page 201](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.lineskiplimit = 0
 
 ---
@@ -787,6 +993,8 @@ tex.lineskiplimit = 0
 ---* [TeX by Topic, page 201](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.mathsurround = 0
 
 ---
@@ -797,6 +1005,8 @@ tex.mathsurround = 0
 ---* [TeX by Topic, page 224](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.maxdepth = 0
 
 ---
@@ -807,6 +1017,8 @@ tex.maxdepth = 0
 ---* [TeX by Topic, page 190](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.nulldelimiterspace = 0
 
 ---
@@ -817,32 +1029,44 @@ tex.nulldelimiterspace = 0
 ---* [TeX by Topic, page 57](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.overfullrule = 0
 
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pagebottomoffset = 0
 
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pageheight = 0
 
 ---
-
----
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pageleftoffset = 0
 
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pagerightoffset = 0
 
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pagetopoffset = 0
 
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pagewidth = 0
 
 ---
@@ -853,6 +1077,8 @@ tex.pagewidth = 0
 ---* [TeX by Topic, page 170](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.parindent = 0
 
 ---
@@ -863,6 +1089,8 @@ tex.parindent = 0
 ---* [TeX by Topic, page 210](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.predisplaysize = 0
 
 ---
@@ -873,6 +1101,8 @@ tex.predisplaysize = 0
 ---* [TeX by Topic, page 200](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.scriptspace = 0
 
 ---
@@ -883,16 +1113,20 @@ tex.scriptspace = 0
 ---* [TeX by Topic, page 224](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.splitmaxdepth = 0
 
 ---
----`\vfuzz`: Excess size that TEX tolerates before it considers a vertical box overfull.
+---`*vf*uzz`: Excess size that TEX tolerates before it considers a vertical box overfull.
 ---
 ---__Reference:__
 ---
 ---* [TeX by Topic, page 57](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.vfuzz = 0
 
 ---
@@ -903,6 +1137,8 @@ tex.vfuzz = 0
 ---* [TeX by Topic, page 224](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.voffset = 0
 
 ---
@@ -913,6 +1149,8 @@ tex.voffset = 0
 ---* [TeX by Topic, page 224](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.vsize = 0
 
 ---
@@ -921,6 +1159,8 @@ tex.vsize = 0
 ---* [TeX by Topic, page ](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.prevdepth = 0
 
 ---
@@ -931,6 +1171,8 @@ tex.prevdepth = 0
 ---* [TeX by Topic, page 157](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.prevgraf = 0
 
 ---
@@ -941,6 +1183,8 @@ tex.prevgraf = 0
 ---* [TeX by Topic, page 185](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type integer # A readable and writable dimension parameter that accepts a Lua number (signifying scaled points) or a string (with included dimension). The result is always a number in scaled points.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.spacefactor = 0
 
 ---
@@ -952,6 +1196,8 @@ tex.spacefactor = 0
 ---
 ---A read only dimension parameter. The result is always a number in scaled points.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pagedepth = 0
 
 ---
@@ -963,6 +1209,8 @@ tex.pagedepth = 0
 ---
 ---A read only dimension parameter. The result is always a number in scaled points.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pagefilllstretch = 0
 
 ---
@@ -974,6 +1222,8 @@ tex.pagefilllstretch = 0
 ---
 ---A read only dimension parameter. The result is always a number in scaled points.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pagefillstretch = 0
 
 ---
@@ -985,6 +1235,8 @@ tex.pagefillstretch = 0
 ---
 ---A read only dimension parameter. The result is always a number in scaled points.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pagefilstretch = 0
 
 ---
@@ -996,6 +1248,8 @@ tex.pagefilstretch = 0
 ---
 ---A read only dimension parameter. The result is always a number in scaled points.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pagegoal = 0
 
 ---
@@ -1007,6 +1261,8 @@ tex.pagegoal = 0
 ------
 ---A read only dimension parameter. The result is always a number in scaled points.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pageshrink = 0
 
 ---
@@ -1018,6 +1274,8 @@ tex.pageshrink = 0
 ---
 ---A read only dimension parameter. The result is always a number in scaled points.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pagestretch = 0
 
 ---
@@ -1029,26 +1287,38 @@ tex.pagestretch = 0
 ---
 ---A read only dimension parameter. The result is always a number in scaled points.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pagetotal = 0
 
 ---
 ---@type string A read-only direction parameter that returns a *Lua* string.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.bodydir = ""
 
 ---
 ---@type string A read-only direction parameter that returns a *Lua* string.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.mathdir = ""
 
 ---
 ---@type string A read-only direction parameter that returns a *Lua* string.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pagedir = ""
 
 ---
 ---@type string A read-only direction parameter that returns a *Lua* string.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.pardir = ""
 
 ---
 ---@type string A read-only direction parameter that returns a *Lua* string.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.textdir = ""
 
 ---
@@ -1059,6 +1329,8 @@ tex.textdir = ""
 ---* [TeX by Topic, page 210](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type GlueSpecNode # A readable and writeable glue parameter that accepts and returns a userdata object which in turn represents a `glue_spec` node.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.abovedisplayshortskip = nil
 
 ---
@@ -1069,6 +1341,8 @@ tex.abovedisplayshortskip = nil
 ---* [TeX by Topic, page 210](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type GlueSpecNode # A readable and writeable glue parameter that accepts and returns a userdata object which in turn represents a `glue_spec` node.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.abovedisplayskip = nil
 
 ---
@@ -1079,6 +1353,8 @@ tex.abovedisplayskip = nil
 ---* [TeX by Topic, page 157](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type GlueSpecNode # A readable and writeable glue parameter that accepts and returns a userdata object which in turn represents a `glue_spec` node.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.baselineskip = nil
 
 ---
@@ -1089,6 +1365,8 @@ tex.baselineskip = nil
 ---* [TeX by Topic, page 210](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type GlueSpecNode # A readable and writeable glue parameter that accepts and returns a userdata object which in turn represents a `glue_spec` node.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.belowdisplayshortskip = nil
 
 ---
@@ -1099,6 +1377,8 @@ tex.belowdisplayshortskip = nil
 ---* [TeX by Topic, page ](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type GlueSpecNode # A readable and writeable glue parameter that accepts and returns a userdata object which in turn represents a `glue_spec` node.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.belowdisplayskip = nil
 
 ---
@@ -1109,6 +1389,8 @@ tex.belowdisplayskip = nil
 ---* [TeX by Topic, page 170](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type GlueSpecNode # A readable and writeable glue parameter that accepts and returns a userdata object which in turn represents a `glue_spec` node.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.leftskip = nil
 
 ---
@@ -1119,6 +1401,8 @@ tex.leftskip = nil
 ---* [TeX by Topic, page 157](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type GlueSpecNode # A readable and writeable glue parameter that accepts and returns a userdata object which in turn represents a `glue_spec` node.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.lineskip = nil
 
 ---
@@ -1129,6 +1413,8 @@ tex.lineskip = nil
 ---* [TeX by Topic, page 166](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type GlueSpecNode # A readable and writeable glue parameter that accepts and returns a userdata object which in turn represents a `glue_spec` node.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.parfillskip = nil
 
 ---
@@ -1139,6 +1425,8 @@ tex.parfillskip = nil
 ---* [TeX by Topic, page 161](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type GlueSpecNode # A readable and writeable glue parameter that accepts and returns a userdata object which in turn represents a `glue_spec` node.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.parskip = nil
 
 ---
@@ -1149,6 +1437,8 @@ tex.parskip = nil
 ---* [TeX by Topic, page 170](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type GlueSpecNode # A readable and writeable glue parameter that accepts and returns a userdata object which in turn represents a `glue_spec` node.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.rightskip = nil
 
 ---
@@ -1159,6 +1449,8 @@ tex.rightskip = nil
 ---* [TeX by Topic, page 185](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type GlueSpecNode # A readable and writeable glue parameter that accepts and returns a userdata object which in turn represents a `glue_spec` node.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.spaceskip = nil
 
 ---
@@ -1169,6 +1461,8 @@ tex.spaceskip = nil
 ---* [TeX by Topic, page 226](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type GlueSpecNode # A readable and writeable glue parameter that accepts and returns a userdata object which in turn represents a `glue_spec` node.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.splittopskip = nil
 
 ---
@@ -1179,6 +1473,8 @@ tex.splittopskip = nil
 ---* [TeX by Topic, page 215](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type GlueSpecNode # A readable and writeable glue parameter that accepts and returns a userdata object which in turn represents a `glue_spec` node.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.tabskip = nil
 
 ---
@@ -1189,6 +1485,8 @@ tex.tabskip = nil
 ---* [TeX by Topic, page 224](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type GlueSpecNode # A readable and writeable glue parameter that accepts and returns a userdata object which in turn represents a `glue_spec` node.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.topskip = nil
 
 ---
@@ -1199,6 +1497,8 @@ tex.topskip = nil
 ---* [TeX by Topic, page 185](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type GlueSpecNode # A readable and writeable glue parameter that accepts and returns a userdata object which in turn represents a `glue_spec` node.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.xspaceskip = nil
 
 ---
@@ -1209,6 +1509,8 @@ tex.xspaceskip = nil
 ---* [TeX by Topic, page 201](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type string # A read-only `muglue` parameter that returns a *Lua* string.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.medmuskip = ""
 
 ---
@@ -1219,6 +1521,8 @@ tex.medmuskip = ""
 ---* [TeX by Topic, page 210](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type string # A read-only `muglue` parameter that returns a *Lua* string.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.thickmuskip = ""
 
 ---
@@ -1229,6 +1533,8 @@ tex.thickmuskip = ""
 ---* [TeX by Topic, page 201](http://mirrors.ctan.org/info/texbytopic/TeXbyTopic.pdf)
 ---
 ---@type string # A read-only `muglue` parameter that returns a *Lua* string.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.thinmuskip = ""
 
 ---
@@ -1239,6 +1545,8 @@ tex.thinmuskip = ""
 ---all category codes are either space (10) or other (12).
 ---
 ---@type string
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.errhelp = ""
 
 ---
@@ -1249,6 +1557,8 @@ tex.errhelp = ""
 ---all category codes are either space (10) or other (12).
 ---
 ---@type string
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.everycr = ""
 
 ---
@@ -1259,6 +1569,8 @@ tex.everycr = ""
 ---all category codes are either space (10) or other (12).
 ---
 ---@type string
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.everydisplay = ""
 
 ---
@@ -1269,6 +1581,8 @@ tex.everydisplay = ""
 ---all category codes are either space (10) or other (12).
 ---
 ---@type string
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.everyeof = ""
 
 ---
@@ -1279,6 +1593,8 @@ tex.everyeof = ""
 ---all category codes are either space (10) or other (12).
 ---
 ---@type string
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.everyhbox = ""
 
 ---
@@ -1289,6 +1605,8 @@ tex.everyhbox = ""
 ---all category codes are either space (10) or other (12).
 ---
 ---@type string
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.everyjob = ""
 
 ---
@@ -1299,6 +1617,8 @@ tex.everyjob = ""
 ---all category codes are either space (10) or other (12).
 ---
 ---@type string
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.everymath = ""
 
 ---
@@ -1309,6 +1629,8 @@ tex.everymath = ""
 ---all category codes are either space (10) or other (12).
 ---
 ---@type string
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.everypar = ""
 
 ---
@@ -1319,6 +1641,8 @@ tex.everypar = ""
 ---all category codes are either space (10) or other (12).
 ---
 ---@type string
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.everyvbox = ""
 
 ---
@@ -1329,110 +1653,156 @@ tex.everyvbox = ""
 ---all category codes are either space (10) or other (12).
 ---
 ---@type string
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.output = ""
 
 ---
 ---@type string # for example `2.2`.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.eTeXVersion = ""
 
 ---
 ---@type string # for example `2.2`.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.eTeXrevision = ""
 
 ---
 ---@type string # for example `luatex`.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.formatname = ""
 
 ---
 ---@type string
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.jobname = ""
 
 ---
 ---@type string # for example `This is LuaTeX, Version 1.15.1 (TeX Live 2023/dev)`.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.luatexbanner = ""
 
 ---
 ---@type string # for example `1`.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.luatexrevision = ""
 
 ---
 ---All “last item” commands are read-only and return a number.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.lastpenalty = 0
 
 ---
 ---All “last item” commands are read-only and return a number.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.lastkern = 0
 
 ---
 ---All “last item” commands are read-only and return a number.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.lastskip = 0
 
 ---
 ---All “last item” commands are read-only and return a number.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.lastnodetype = 0
 
 ---
 ---All “last item” commands are read-only and return a number.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.inputlineno = 0
 
 ---
 ---All “last item” commands are read-only and return a number.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.lastxpos = 0
 
 ---
 ---All “last item” commands are read-only and return a number.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.lastypos = 0
 
 ---
 ---All “last item” commands are read-only and return a number.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.randomseed = 0
 
 ---
 ---All “last item” commands are read-only and return a number.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.luatexversion = 0
 
 ---
 ---All “last item” commands are read-only and return a number.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.eTeXminorversion = 0
 
 ---
 ---All “last item” commands are read-only and return a number.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.eTeXversion = 0
 
 ---
 ---All “last item” commands are read-only and return a number.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.currentgrouplevel = 0
 
 ---
 ---All “last item” commands are read-only and return a number.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.currentgrouptype = 0
 
 ---
 ---All “last item” commands are read-only and return a number.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.currentiflevel = 0
 
 ---
 ---All “last item” commands are read-only and return a number.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.currentiftype = 0
 
 ---
 ---All “last item” commands are read-only and return a number.
 ---@type integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.currentifbranch = 0
 
 ---
@@ -1440,16 +1810,20 @@ tex.currentifbranch = 0
 ---see `LuaTeX` manual: 10.3.5 Accessing registers: `set*`, `get*` and `is*`
 ---
 ---@type table
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.attribute = {}
 
 ---
 ---* Corresponding C source code: [ltexlib.c#L1087-L1102](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1087-L1102)
 ---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.setattribute() end
 
 ---
 ---* Corresponding C source code: [ltexlib.c#L1104-L1114](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1104-L1114)
 ---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.getattribute() end
 
 ---
@@ -1462,50 +1836,9 @@ function tex.isattribute() end
 ---see `LuaTeX` manual: 10.3.5 Accessing registers: `set*`, `get*` and `is*`
 ---
 ---@type table
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 tex.count = {}
-
----
----The dimension registers accept *Lua* numbers (in scaled points) or
----strings (with an included absolute dimension; `em` and `ex`
----and `px` are forbidden). The result is always a number in scaled
----points.
----
----see `LuaTeX` manual: 10.3.5 Accessing registers: `set*`, `get*` and `is*`
----
----@type table
-tex.dimen = {}
-
----
----see `LuaTeX` manual: 10.3.5 Accessing registers: `set*`, `get*` and `is*`
----
----@type table
-tex.glue = {}
-
----
----see `LuaTeX` manual: 10.3.5 Accessing registers: `set*`, `get*` and `is*`
----
----@type table
-tex.muglue = {}
-
----
----see `LuaTeX` manual: 10.3.5 Accessing registers: `set*`, `get*` and `is*`
----
----@type table
-tex.muskip = {}
-
----
----see `LuaTeX` manual: 10.3.5 Accessing registers: `set*`, `get*` and `is*`
----
----@type table
-tex.skip = {}
-
----
----see `LuaTeX` manual: 10.3.5 Accessing registers: `set*`, `get*` and `is*`
----
----@type table
-tex.toks = {}
-
----
 
 ---
 ---Warning! Undocumented code!<p>
@@ -1523,6 +1856,25 @@ function tex.getcount() end
 ---Warning! Undocumented code!<p>
 ---TODO: Please contribute
 ---https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
+function tex.iscount() end
+
+---
+---The dimension registers accept *Lua* numbers (in scaled points) or
+---strings (with an included absolute dimension; `em` and `ex`
+---and `px` are forbidden). The result is always a number in scaled
+---points.
+---
+---see `LuaTeX` manual: 10.3.5 Accessing registers: `set*`, `get*` and `is*`
+---
+---@type table
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+tex.dimen = {}
+
+---
+---Warning! Undocumented code!<p>
+---TODO: Please contribute
+---https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
 function tex.setdimen() end
 
 ---
@@ -1535,13 +1887,15 @@ function tex.getdimen() end
 ---Warning! Undocumented code!<p>
 ---TODO: Please contribute
 ---https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.setskip() end
+function tex.isdimen() end
 
 ---
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getskip() end
+---see `LuaTeX` manual: 10.3.5 Accessing registers: `set*`, `get*` and `is*`
+---
+---@type table
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+tex.glue = {}
 
 ---
 ---Warning! Undocumented code!<p>
@@ -1559,13 +1913,15 @@ function tex.getglue() end
 ---Warning! Undocumented code!<p>
 ---TODO: Please contribute
 ---https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getmuskip() end
+function tex.isglue() end
 
 ---
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.setmuskip() end
+---see `LuaTeX` manual: 10.3.5 Accessing registers: `set*`, `get*` and `is*`
+---
+---@type table
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+tex.muglue = {}
 
 ---
 ---Warning! Undocumented code!<p>
@@ -1583,13 +1939,845 @@ function tex.getmuglue() end
 ---Warning! Undocumented code!<p>
 ---TODO: Please contribute
 ---https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.settoks() end
+function tex.ismuglue() end
+
+---
+---see `LuaTeX` manual: 10.3.5 Accessing registers: `set*`, `get*` and `is*`
+---
+---@type table
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+tex.muskip = {}
 
 ---
 ---Warning! Undocumented code!<p>
 ---TODO: Please contribute
 ---https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.gettoks() end
+function tex.getmuskip() end
+
+---
+---Warning! Undocumented code!<p>
+---TODO: Please contribute
+---https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
+function tex.setmuskip() end
+
+---
+---Warning! Undocumented code!<p>
+---TODO: Please contribute
+---https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
+function tex.ismuskip() end
+
+---
+---see `LuaTeX` manual: 10.3.5 Accessing registers: `set*`, `get*` and `is*`
+---
+---@type table
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+tex.skip = {}
+
+---
+---Warning! Undocumented code!<p>
+---TODO: Please contribute
+---https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
+function tex.setskip() end
+
+---
+---Warning! Undocumented code!<p>
+---TODO: Please contribute
+---https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
+function tex.getskip() end
+
+---
+---Warning! Undocumented code!<p>
+---TODO: Please contribute
+---https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
+function tex.isskip() end
+
+---
+---see `LuaTeX` manual: 10.3.5 Accessing registers: `set*`, `get*` and `is*`
+---
+---@type table
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+tex.toks = {}
+
+---
+---Set a toks register. Also accepts a predefined csname string.
+---
+---* Corresponding C source code: [ltexlib.c#L1125-L1158](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1125-L1158)
+---
+---@param global 'global'
+---@param toks_register integer
+---@param toks string
+function tex.settoks(global, toks_register, toks) end
+
+---
+---Get a toks register. Also accepts a predefined csname string.
+---
+---* Corresponding C source code: [ltexlib.c#L1197-L1209](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1197-L1209)
+---
+---@param toks_register integer
+---
+---@return string toks
+function tex.gettoks(toks_register) end
+
+---
+---* Corresponding C source code: [ltexlib.c#L1120-L1123](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1120-L1123)
+---
+function tex.istoks() end
+
+---
+---For tokens registers we have an alternative where a catcode table is specified:
+---
+---```lua
+---tex.scantoks(0,3,"$e=mc^2$")
+---tex.scantoks("global",0,"$\\int\\limits^1_2$")
+---```
+---
+---* Corresponding C source code: [ltexlib.c#L1160-L1195](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1160-L1195)
+---
+---@param global 'global'
+---@param toks_register integer
+---@param catcodetable integer
+---@param toks string
+function tex.scantoks(global, toks_register, catcodetable, toks) end
+
+---
+---There is a dedicated getter for marks: getmark that takes two arguments. The first argument
+---is one of top, bottom, first, splitbottom or splitfirst, and the second argument is a marks
+---class number. When no arguments are given the current maximum number of classes is returned.
+function tex.getmark() end
+
+---
+---*TeX*'s character code table `lccode` (lower case code) can be accessed and written to using
+---a virtual subtable of the `tex` table.
+---@type table
+tex.lccode = {}
+
+---
+---The function call interface for `lccode` (lower case code) additionally
+---allows you to set the associated sibling at the same time.
+---
+---* Corresponding C source code: [ltexlib.c#L1369-L1397](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1369-L1397)
+---
+---@param global 'global'
+---@param n integer
+---@param lc integer
+---@param uc? integer
+---
+---@return integer s
+function tex.setlccode(global, n, lc, uc) end
+
+---
+---The function call interface for `lccode` (lower case code) additionally
+---allows you to set the associated sibling at the same time.
+---
+---* Corresponding C source code: [ltexlib.c#L1369-L1397](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1369-L1397)
+---
+---@param n integer
+---@param lc integer
+---@param uc? integer
+---
+---@return integer s
+function tex.setlccode(n, lc, uc) end
+
+---
+---* Corresponding C source code: [ltexlib.c#L1404-L1410](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1404-L1410)
+---
+---@param n integer
+---
+---@return integer lc
+function tex.getlccode(n) end
+
+---
+---*TeX*'s character code table `uccode` (upper case code) can be accessed and written to using
+---a virtual subtable of the `tex` table.
+---@type table
+tex.uccode = {}
+
+---
+---The function call interface for `uccode` (upper case code) additionally
+---allows you to set the associated sibling at the same time.
+---
+---* Corresponding C source code: [ltexlib.c#L1369-L1397](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1369-L1397)
+---
+---@param global 'global'
+---@param n integer
+---@param uc integer
+---@param lc? integer
+---
+---@return integer s
+function tex.setuccode(global, n, uc, lc) end
+
+---
+---The function call interface for `uccode` (upper case code) additionally
+---allows you to set the associated sibling at the same time.
+---
+---* Corresponding C source code: [ltexlib.c#L1369-L1397](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1369-L1397)
+---
+---@param n integer
+---@param uc integer
+---@param lc? integer
+---
+---@return integer s
+function tex.setuccode(n, uc, lc) end
+
+---
+---* Corresponding C source code: [ltexlib.c#L1417-L1423](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1417-L1423)
+---
+---@param n integer
+---
+---@return integer s
+function tex.getuccode(n) end
+
+---
+---*TeX*'s character code table `sfcode` (space factor code) can be accessed and written to using
+---a virtual subtable of the `tex` table.
+---@type table
+tex.sfcode = {}
+
+---
+---@param global 'global'
+---@param n integer
+---@param s integer
+---
+---@return integer s
+function tex.setsfcode(global, n, s) end
+
+---
+---@param n integer
+---@param s integer
+---
+---@return integer s
+function tex.setsfcode(n, s) end
+
+---
+---@param n integer
+---
+---@return integer s
+function tex.getsfcode(n) end
+
+---
+---*TeX*'s character code table `catcode` (category code) can be accessed and written to using
+---a virtual subtable of the `tex` table.
+---@type table
+tex.catcode = {}
+
+---
+---The function call interface for `catcode` (category code) also allows you to specify a
+---category table to use on assignment or on query (default in both cases is the
+---current one):
+---
+---@param global 'global'
+---@param n integer
+---@param c integer
+function tex.setcatcode(global, n, c) end
+
+---
+---The function call interface for `catcode` (category code) also allows you to specify a
+---category table to use on assignment or on query (default in both cases is the
+---current one):
+---
+---@param n integer
+---@param c integer
+function tex.setcatcode(n, c) end
+
+---
+---The function call interface for `catcode` (category code) also allows you to specify a
+---category table to use on assignment or on query (default in both cases is the
+---current one):
+---
+---@param global 'global'
+---@param cattable integer
+---@param n integer
+---@param c integer
+function tex.setcatcode(global, cattable, n, c) end
+
+---
+---The function call interface for `catcode` (category code) also allows you to specify a
+---category table to use on assignment or on query (default in both cases is the
+---current one):
+---
+---@param cattable integer
+---@param n integer
+---@param c integer
+function tex.setcatcode(global, cattable, n, c) end
+
+---
+---The function call interface for `catcode` (category code) also allows you to specify a
+---category table to use on assignment or on query (default in both cases is the
+---current one):
+---
+---@param cattable integer
+---@param n integer
+---
+---@return integer lc
+function tex.getcatcode(cattable, n) end
+
+---
+---*TeX*'s character code table `mathcode` can be accessed and written to using
+---a virtual subtable of the `tex` table.
+---@type table
+tex.mathcode = {}
+
+---
+---The table for `mathcode` is an array of 3 numbers, like this:
+---
+---```lua
+---{
+---    -- class
+---    -- family
+---    -- character
+---}
+---```
+---
+---@alias MathCode integer[]
+
+---
+---* Corresponding C source code: [ltexlib.c#L1524-L1561](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1524-L1561)
+---
+---@param global 'global'
+---@param n integer
+---@param class integer
+---@param family integer
+---@param character integer
+function tex.setmathcode(global, n, class, family, character) end
+
+---
+---* Corresponding C source code: [ltexlib.c#L1524-L1561](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1524-L1561)
+---
+---@param n integer
+---@param class integer
+---@param family integer
+---@param character integer
+function tex.setmathcode(global, n, class, family, character) end
+
+---
+---* Corresponding C source code: [ltexlib.c#L1524-L1561](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1524-L1561)
+---
+---@param global 'global'
+---@param n integer
+---@param math_code MathCode
+function tex.setmathcode(global, n, math_code) end
+
+---
+---* Corresponding C source code: [ltexlib.c#L1524-L1561](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1524-L1561)
+---
+---@param n integer
+---@param math_code MathCode
+function tex.setmathcode( n, math_code) end
+
+---
+---* Corresponding C source code: [ltexlib.c#L1563-L1577](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1563-L1577)
+---
+---@param n integer
+---
+---@return MathCode math_code
+function tex.getmathcode(n) end
+
+---
+---* Corresponding C source code: [ltexlib.c#L1579-L1589](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1579-L1589)
+---
+---@param n integer
+---
+---@return integer class
+---@return integer family
+---@return integer character
+function tex.getmathcodes(n) end
+
+---
+---*TeX*'s character code tables `delcode` (delimiter code) can be accessed and written to using
+---a virtual subtable of the `tex` table.
+---@type table
+tex.delcode = {}
+
+---
+---And the table for `delcode` (delimiter code) is an array with 4 numbers, like this:
+---
+---```lua
+---{
+---    -- small_family
+---    -- small_character
+---    -- large_family
+---    -- large_character
+---}
+---```
+---@alias DelCode integer[]
+
+---
+---* Corresponding C source code: [ltexlib.c#L1640-L1681](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1640-L1681)
+---
+---@param global 'global'
+---@param n integer
+---@param small_family integer
+---@param small_character integer
+---@param large_family integer
+---@param large_character integer
+function tex.setdelcode(global, n, small_family, small_character, large_family, large_character) end
+
+---
+---* Corresponding C source code: [ltexlib.c#L1640-L1681](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1640-L1681)
+---
+---@param n integer
+---@param small_family integer
+---@param small_character integer
+---@param large_family integer
+---@param large_character integer
+function tex.setdelcode( n, small_family, small_character, large_family, large_character) end
+
+---
+---* Corresponding C source code: [ltexlib.c#L1640-L1681](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1640-L1681)
+---
+---@param global 'global'
+---@param n integer
+---@param del_code DelCode
+function tex.setdelcode(global, n, del_code) end
+
+---
+---* Corresponding C source code: [ltexlib.c#L1640-L1681](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1640-L1681)
+---
+---@param n integer
+---@param del_code DelCode
+function tex.setdelcode(n, del_code) end
+
+---
+---* Corresponding C source code: [ltexlib.c#L1701-L1712](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1701-L1712)
+---
+---@param n integer
+---
+---@return integer small_family
+---@return integer small_character
+---@return integer large_family
+---@return integer large_character
+function tex.getdelcodes(n) end
+
+---
+---* Corresponding C source code: [ltexlib.c#L1683-L1699](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1683-L1699)
+---
+---@param n integer
+---
+---@return DelCode
+function tex.getdelcode(n) end
+
+---
+---Set a box, coming for instance from `hbox`, `vbox` or `vtop`.
+---
+---It is possible to
+---define values globally by using the string `global` as the first function
+---argument.
+---
+---* Corresponding C source code: [ltexlib.c#L1352-L1362](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1352-L1362)
+---
+---@param global 'global'
+---@param box_register integer # A box register number (0 to 65535).
+---@param head Node # A `hlist` or `vlist` node.
+function tex.setbox(global, box_register, head) end
+
+---
+---Set a box, coming for instance from `hbox`, `vbox` or `vtop`.
+---
+---It is possible to
+---define values globally by using the string `global` as the first function
+---argument.
+---
+---* Corresponding C source code: [ltexlib.c#L1352-L1362](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1352-L1362)
+---
+---@param box_register integer # A box register number (0 to 65535).
+---@param head Node # A `hlist` or `vlist` node.
+function tex.setbox(box_register, head) end
+
+---
+---Query an actual boxe, coming for instance from `hbox`, `vbox` or `vtop`.
+---
+---* Corresponding C source code: [ltexlib.c#L1272-L1280](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1272-L1280)
+---
+---@param box_register integer|string # A box register number (0 to 65535) or a cs name (for example `\newbox\MyBox`: `MyBox`)
+---
+---@return Node|nil head
+function tex.getbox(box_register) end
+
+---
+---Check if the given integer is a valid box register number.
+---
+---__Example:__
+---
+---```lua
+---print(tex.isbox(65535)) -- true
+---print(tex.isbox(65536)) -- false
+---```
+---
+---* Corresponding C source code: [ltexlib.c#L1310-L1315](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1310-L1315)
+---
+---@param box_register integer # A box register number (0 to 65535).
+---
+---@return boolean
+function tex.isbox(box_register) end
+
+---
+---Register a box for reuse (this is modelled after so
+---called xforms in *PDF*). You can (re)use the box with `useboxresource` or
+---by creating a rule node with subtype 2.
+---
+---* Corresponding C source code: [ltexlib.c#L3217-L3278](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3217-L3278)
+---
+---@see tex.useboxresource
+---
+---@param n Node|integer # Instead of a box number one can also pass a `[h|v]list` node.
+---@param attributes string
+---@param resources string
+---@param immediate boolean
+---@param type integer # When set to non-zero the `/Type` entry is omitted. A value of 1 or 3 still writes a `/BBox`, while 2 or 3 will write a `/Matrix`.
+---@param margin integer # The (virtual) margin that extends beyond the effective boundingbox as seen by *TeX*.
+---
+---@return integer index
+---
+function tex.saveboxresource(n, attributes, resources, immediate, type, margin) end
+
+---
+---* Corresponding Lua source code: [ltexlib.c#L3346-L3355](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3346-L3355)
+---
+---@param n integer
+---
+---@return Node
+function tex.getboxresourcebox(n) end
+
+---
+---Generate the reference (a rule type).
+---
+---The dimensions are optional and the final ones are returned as extra values.
+---
+---* Corresponding C source code: [ltexlib.c#L3280-L3325](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3280-L3325)
+---
+---@see tex.saveboxresource
+---
+---@param n integer
+---@param width? integer
+---@param height? integer
+---@param depth? integer
+---
+---@return Node|nil margin
+---@return integer|nil width
+---@return integer|nil height
+---@return integer|nil depth
+function tex.useboxresource(n, width, height, depth) end
+
+---
+---Returns the width, height, depth and margin of the resource.
+---
+---No dimensions returned means that the resource is
+---unknown.
+---
+---* Corresponding C source code: [ltexlib.c#L3327-L3344](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3327-L3344)
+---
+---@param n Node
+---
+---@return integer|nil width
+---@return integer|nil height
+---@return integer|nil depth
+---@return integer|nil margin
+function tex.getboxresourcedimensions(n) end
+
+---
+---Call the internal
+---function that build a page, given that there is something to build.
+---
+---You should not expect to much from the `triggerbuildpage` helpers because
+---often *TeX* doesn't do much if it thinks nothing has to be done, but it might be
+---useful for some applications.
+---
+---* Corresponding C source code: [ltexlib.c#L3357-L3361](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3357-L3361)
+---
+function tex.triggerbuildpage() end
+
+---
+---Split a box.
+---
+---The remainder is kept in the original box and a packaged vlist is returned. This
+---operation is comparable to the `vsplit` operation. The mode can be `additional` or `exactly` and concerns the split off box.
+---
+---* Corresponding C source code: [ltexlib.c#L1282-L1308](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1282-L1308)
+---
+---@param n Node
+---@param height integer
+---@param mode 'additional' | 'exactly'
+---
+---@return Node|nil vlist
+function tex.splitbox(n, height, mode) end
+
+---
+---Set the internal math parameters.
+---
+---* Corresponding C source code: [ltexlib.c#L1986-L2015](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1986-L2015)
+---
+---@param math_param_name MathParamName
+---@param math_style_name MathStyleName
+---@param value integer
+function tex.setmath(math_param_name, math_style_name, value) end
+
+---
+---Set the internal math parameters.
+---
+---* Corresponding C source code: [ltexlib.c#L1986-L2015](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L1986-L2015)
+---
+---@param global 'global' # Indicate a global assignment.
+---@param math_param_name MathParamName
+---@param math_style_name MathStyleName
+---@param value integer|Node # The value is either a number (representing a dimension or number) or a glue spec node representing a muskip for `ordordspacing` and similar spacing parameters.
+function tex.setmath(global, math_param_name, math_style_name, value) end
+
+---
+---Query the internal math parameters.
+---
+---* Corresponding C source code: [ltexlib.c#L2017-L2039](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L2017-L2039)
+---
+---@param math_param_name MathParamName
+---@param math_style_name MathStyleName
+---
+---@return integer|Node value # The value is either a number (representing a dimension or number) or a glue spec node representing a muskip for `ordordspacing` and similar spacing parameters.
+function tex.getmath(math_param_name, math_style_name) end
+
+---
+---The style name minus the trailing “style”.
+---
+---* Corresponding C source code: [texmath.c#L510-L516](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/tex/texmath.c#L510-L516)
+---@alias MathStyleName
+---|'display'
+---|'crampeddisplay'
+---|'text'
+---|'crampedtext'
+---|'script'
+---|'crampedscript'
+---|'scriptscript'
+---|'crampedscriptscript'
+
+---
+---The parameter name minus the leading “Umath”.
+---
+---* Corresponding C source code: [texmath.c#L518-L558](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/tex/texmath.c#L518-L558)
+---@alias MathParamName
+---|'quad'
+---|'axis'
+---|'operatorsize'
+---|'overbarkern'
+---|'overbarrule'
+---|'overbarvgap'
+---|'underbarkern'
+---|'underbarrule'
+---|'underbarvgap'
+---|'radicalkern'
+---|'radicalrule'
+---|'radicalvgap'
+---|'radicaldegreebefore'
+---|'radicaldegreeafter'
+---|'radicaldegreeraise'
+---|'stackvgap'
+---|'stacknumup'
+---|'stackdenomdown'
+---|'fractionrule'
+---|'fractionnumvgap'
+---|'fractionnumup'
+---|'fractiondenomvgap'
+---|'fractiondenomdown'
+---|'fractiondelsize'
+---|'skewedfractionhgap'
+---|'skewedfractionvgap'
+---|'limitabovevgap'
+---|'limitabovebgap'
+---|'limitabovekern'
+---|'limitbelowvgap'
+---|'limitbelowbgap'
+---|'limitbelowkern'
+---|'nolimitsubfactor'
+---|'nolimitsupfactor'
+---|'underdelimitervgap'
+---|'underdelimiterbgap'
+---|'overdelimitervgap'
+---|'overdelimiterbgap'
+---|'subshiftdrop'
+---|'supshiftdrop'
+---|'subshiftdown'
+---|'subsupshiftdown'
+---|'subtopmax'
+---|'supshiftup'
+---|'supbottommin'
+---|'supsubbottommax'
+---|'subsupvgap'
+---|'spaceafterscript'
+---|'connectoroverlapmin'
+---|'ordordspacing'
+---|'ordopspacing'
+---|'ordbinspacing'
+---|'ordrelspacing'
+---|'ordopenspacing'
+---|'ordclosespacing'
+---|'ordpunctspacing'
+---|'ordinnerspacing'
+---|'opordspacing'
+---|'opopspacing'
+---|'opbinspacing'
+---|'oprelspacing'
+---|'opopenspacing'
+---|'opclosespacing'
+---|'oppunctspacing'
+---|'opinnerspacing'
+---|'binordspacing'
+---|'binopspacing'
+---|'binbinspacing'
+---|'binrelspacing'
+---|'binopenspacing'
+---|'binclosespacing'
+---|'binpunctspacing'
+---|'bininnerspacing'
+---|'relordspacing'
+---|'relopspacing'
+---|'relbinspacing'
+---|'relrelspacing'
+---|'relopenspacing'
+---|'relclosespacing'
+---|'relpunctspacing'
+---|'relinnerspacing'
+---|'openordspacing'
+---|'openopspacing'
+---|'openbinspacing'
+---|'openrelspacing'
+---|'openopenspacing'
+---|'openclosespacing'
+---|'openpunctspacing'
+---|'openinnerspacing'
+---|'closeordspacing'
+---|'closeopspacing'
+---|'closebinspacing'
+---|'closerelspacing'
+---|'closeopenspacing'
+---|'closeclosespacing'
+---|'closepunctspacing'
+---|'closeinnerspacing'
+---|'punctordspacing'
+---|'punctopspacing'
+---|'punctbinspacing'
+---|'punctrelspacing'
+---|'punctopenspacing'
+---|'punctclosespacing'
+---|'punctpunctspacing'
+---|'punctinnerspacing'
+---|'innerordspacing'
+---|'inneropspacing'
+---|'innerbinspacing'
+---|'innerrelspacing'
+---|'inneropenspacing'
+---|'innerclosespacing'
+---|'innerpunctspacing'
+---|'innerinnerspacing'
+
+---
+---The virtual table `tex.lists` contains the set of internal registers that
+---keep track of building page lists.
+tex.lists = {}
+
+---
+---circular list of pending insertions
+tex.lists.page_ins_head = nil
+
+---
+---the recent contributions
+tex.lists.contrib_head = nil
+
+---
+---the current page content
+tex.lists.page_head = nil
+
+---
+---used for held-over items for next page
+tex.lists.hold_head = nil
+
+---
+---head of the current `vadjust` list
+tex.lists.adjust_head = nil
+
+---
+---head of the current `\vadjust pre` list
+tex.lists.pre_adjust_head = nil
+
+---
+---head of the discarded items of a page break
+tex.lists.page_discards_head = nil
+
+---
+---head of the discarded items in a vsplit
+tex.lists.split_discards_head = nil
+
+---
+---You have
+---to be careful with what you set as *TeX* can have expectations with regards to
+---how a list is constructed or in what state it is.
+---
+---* Corresponding C source code: [ltexlib.c#L2266-L2321](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L2266-L2321)
+function tex.setlist() end
+
+---
+---* Corresponding C source code: [ltexlib.c#L2202-L2264](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L2202-L2264)
+---
+function tex.getlist() end
+
+---
+---The virtual table `nest` contains the currently active semantic nesting
+---state. It has two main parts: a zero-based array of userdata for the semantic
+---nest itself, and the numerical value `ptr`, which gives the highest
+---available index. Neither the array items in `nest[]` nor `ptr` can be
+---assigned to (as this would confuse the typesetting engine beyond repair), but you
+---can assign to the individual values inside the array items, e.g. `tex.nest[tex.nest.ptr].prevdepth`.
+---
+---`tex.nest[tex.nest.ptr]` is the current nest state, `nest[0]` the
+---outermost (main vertical list) level.
+---@type table<integer, Nest>
+tex.nest = {}
+
+---
+---highest
+---available index.
+---@type integer
+tex.nest.ptr = 0
+
+---
+---The getter function is `getnest`. You
+---can pass a number (which gives you a list), nothing or `top`, which returns
+---the topmost list, or the string `ptr` which gives you the index of the
+---topmost list.
+---
+---* Corresponding C source code: [ltexlib.c#L2422-L2455](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L2422-L2455)
+
+---
+---@return Nest
+function tex.getnest() end
+
+---
+---* Corresponding C source code: [ltexlib.c#L2457-L2461](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L2457-L2461)
+function tex.setnest() end
+
+---
+---* Corresponding C source code: [ltexlib.c#L2325-L2361](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L2325-L2361)
+---
+---@class Nest
+---@field mode number # the meaning of these numbers depends on the engine and sometimes even the version; you can use `tex.getmodevalues()` to get the mapping: positive values signal vertical, horizontal and math mode, while negative values indicate inner and inline variants (all modes).
+---@field modeline integer # source input line where this mode was entered in, negative inside the output routine (all modes).
+---@field head Node # the head of the current list (all modes).
+---@field tail Node # the tail of the current list (all modes).
+---@field prevgraf integer # number of lines in the previous paragraph (vertical mode).
+---@field prevdepth integer # depth of the previous paragraph (vertical mode).
+---@field spacefactor integer # the current space factor (horizontal mode).
+---@field dirs Node # used for temporary storage by the line break algorithm (horizontal mode).
+---@field noad Node #  used for temporary storage of a pending fraction numerator, for `over` etc. (math mode).
+---@field delimptr Node # used for temporary storage of the previous math delimiter, for `middle` (math mode).
+---@field mathdir boolean # true when during math processing the `mathdir` is not the same as the surrounding `textdir` (math mode).
+---@field mathstyle integer # mmode  the current `mathstyle`
+---
+
+---
+---`tex.getmodevalues()` to get the mapping: positive values signal vertical, horizontal and math mode, while negative values indicate inner and inline variants (all modes).
+---
+---* Corresponding C source code: [ltexlib.c#L3549-L3565](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3549-L3565)
+---
+function tex.getmodevalues() end
 
 ---
 ---The `tex` table also contains the three print functions that are the major
@@ -1618,6 +2806,8 @@ function tex.gettoks() end
 ---* Source code of the `LuaTeX` manual: [luatex-tex.tex#L1172-L1196](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/manual/luatex-tex.tex#L1172-L1196)
 ---
 ---@param ... string # Each string argument is treated by *TeX* as a separate input line.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.print(...) end
 
 ---
@@ -1632,6 +2822,8 @@ function tex.print(...) end
 ---
 ---@param n integer If `n` is `-1`, the currently active catcode regime is used. If `n` is `-2`, the resulting catcodes are the result of `the` `toks`: all category codes are 12 (other) except for the space character, that has category code 10 (space). Otherwise, if `n` is not a valid catcode table, then it is ignored, and the currently active catcode regime is used instead.
 ---@param ... string
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.print(n, ...) end
 
 ---
@@ -1646,6 +2838,8 @@ function tex.print(n, ...) end
 ---* Source code of the `LuaTeX` manual: [luatex-tex.tex#L1222-L1224](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/manual/luatex-tex.tex#L1222-L1224)
 ---
 ---@param t table
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.print(t) end
 
 ---
@@ -1653,6 +2847,8 @@ function tex.print(t) end
 ---
 ---@param n integer # Print the strings using the catcode regime defined by `catcodetable` `n`.
 ---@param t table
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.print(n, t) end
 
 ---
@@ -1711,26 +2907,37 @@ function tex.print(n, t) end
 ---of these fuzzy areas you have to live with if you really mess with these low
 ---level issues.
 ---@param ... string
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.sprint(...) end
 
 ---
 ---@param n integer
 ---@param ... string
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.sprint(n, ...) end
 
 ---
 ---@param t table
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.sprint(t) end
 
 ---
 ---@param n integer # Print the strings using the catcode regime defined by `catcodetable` `n`.
 ---@param t table
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.sprint(n, t) end
 
 ---
 ---This function is basically a shortcut for repeated calls to `tex.sprint(<number> n, <string> s, ...)`, once for each of the supplied argument
 ---tables.
+---
 ---@param ... table
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.tprint(...) end
 
 ---
@@ -1749,6 +2956,8 @@ function tex.tprint(...) end
 ---```
 ---@param n integer
 ---@param ... string|table
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.cprint(n, ...) end
 
 ---
@@ -1762,10 +2971,14 @@ function tex.cprint(n, ...) end
 ---consecutive array of strings to print (the first non-string value will stop the
 ---printing process).
 ---@param ... string
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.write(...) end
 
 ---
 ---@param t table
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.write(t) end
 
 ---
@@ -1776,6 +2989,8 @@ function tex.write(t) end
 ---@param o number
 ---
 ---@return integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.round(o) end
 
 ---
@@ -1793,6 +3008,8 @@ function tex.round(o) end
 ---@param delta number
 ---
 ---@return number
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.scale(o, delta) end
 
 ---
@@ -1800,18 +3017,24 @@ function tex.scale(o, delta) end
 ---@param delta number
 ---
 ---@return table
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.scale(o, delta) end
 
 ---
 ---@param n integer
 ---
 ---@return integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.number(n) end
 
 ---
 ---@param n integer
 ---
 ---@return string
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.romannumeral(n) end
 
 ---
@@ -1822,6 +3045,8 @@ function tex.romannumeral(n) end
 ---@param font_id integer
 ---
 ---@return string # for example `\tenrm`.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.fontidentifier(font_id) end
 
 ---
@@ -1831,6 +3056,8 @@ function tex.fontidentifier(font_id) end
 ---@param font_id integer
 ---
 ---@return string # for example `cmr10`.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.fontname(font_id) end
 
 ---
@@ -1846,6 +3073,8 @@ function tex.fontname(font_id) end
 ---@param o integer
 ---
 ---@return integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.sp(o) end
 
 ---
@@ -1876,18 +3105,19 @@ function tex.sp(o) end
 ---@param s string # A string to convert into scaled points.
 ---
 ---@return integer # The dimension in the scaled points format.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.sp(s) end
 
 -- Removed?
 
 ---
----This creates an error somewhat like the combination of `\errhelp` and
----`\errmessage` would. During this error, deletions are disabled.
+---Create an error like the combination of `\errhelp` and
+---`\errmessage`.
 ---
----In case of an error the `show_context` function will show the current
----context where we're at (in the expansion).
+---During this error, deletions are disabled.
 ---
----see `LuaTeX` manual: 10.3.15.5 `sp`
+  ---see `LuaTeX` manual: 10.3.15.5 `sp`
 ---
 ---__Reference:__
 ---
@@ -1895,7 +3125,16 @@ function tex.sp(s) end
 ---
 ---@param s string # An error message like `\errmessage`.
 ---@param help? table # The array part of the `help` table has to contain strings, one for each line of error help.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.error(s, help) end
+
+---
+---Show the current
+---(expansion) context in case of an error.
+---
+---* Corresponding C source code: [/ltexlib.c#L3210-L3215](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3210-L3215)
+function tex.show_context() end
 
 ---
 ---Start the interpretation.
@@ -1911,14 +3150,18 @@ function tex.error(s, help) end
 ---__Reference:__
 ---
 ---* Source code of the `LuaTeX` manual: [L1459-L1470](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/manual/luatex-tex.tex#L1459-L1470)
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.run() end
 
 ---
----Force the end of a interpretation.
+---Force the end of an interpretation.
 ---
 ---__Reference:__
 ---
 ---* Source code of the `LuaTeX` manual: [luatex-tex.tex#L1464](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/manual/luatex-tex.tex#L1464)
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.finish() end
 
 ---
@@ -1940,11 +3183,6 @@ function tex.finish() end
 ---least tries to) like it were an `\the`. This prevents unwanted side
 ---effects: normally in such an definition tokens remain tokens and (for instance)
 ---characters don't become nodes.
----
----You can quit the local loop with `\endlocalcontrol` or from the *Lua* end
----with `tex.quittoks`. In that case you end one level up! Of course in the
----end that can mean that you arrive at the main level in which case an extra end
----will trigger a redundancy warning (not an abort!).
 ---
 ---__Example:__
 ---
@@ -1968,11 +3206,22 @@ function tex.finish() end
 ---@param token_register integer
 ---@param force? boolean # force the local main loop
 ---@param grouped? boolean # adds a level of grouping.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.runtoks(token_register, force, grouped) end
 
 ---
 ---@param func function
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.runtoks(func) end
+
+---
+---You can quit the local loop with `\endlocalcontrol` or from the *Lua* end
+---with `tex.quittoks`. In that case you end one level up! Of course in the
+---end that can mean that you arrive at the main level in which case an extra end
+---will trigger a redundancy warning (not an abort!).
+function tex.quittoks() end
 
 ---
 ---An example of a (possible error triggering) complication is that *TeX* expects to
@@ -1981,7 +3230,12 @@ function tex.runtoks(func) end
 ---into issues but when you start writing tokens or nodes or have a nested run there
 ---can be situations that you need to run `forcehmode`. There is no recipe for
 ---this and intercepting possible cases would weaken *LuaTeX*'s flexibility.
-function tex.forcehmode() end
+---
+---@param indented? boolean
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+---
+function tex.forcehmode(indented) end
 
 ---
 ---Return a list of names.
@@ -1999,6 +3253,7 @@ function tex.forcehmode() end
 ---
 ---* Corresponding C source code: [ltexlib.c#L2662-L2690](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L2662-L2690)
 ---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.hashtokens() end
 
 ---
@@ -2008,6 +3263,8 @@ function tex.hashtokens() end
 ---
 ---@param csname string
 ---@param fontid integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.definefont(csname, fontid) end
 
 ---
@@ -2018,6 +3275,8 @@ function tex.definefont(csname, fontid) end
 ---@param global boolean
 ---@param csname string
 ---@param fontid integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.definefont(global, csname, fontid) end
 
 ---
@@ -2064,34 +3323,84 @@ function tex.definefont(global, csname, fontid) end
 ---code but not do much else. The defined csnames are (of course) saved in the
 ---format and will be available at runtime.
 ---
+---* Corresponding C source code: [ltexlib.c#L2752-L2809](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L2752-L2809)
+---
 ---@param prefix string
----@param primitive_names table
+---@param primitive_names string[]
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.enableprimitives(prefix, primitive_names) end
 
 ---
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.extraprimitives() end
+---@alias TexEngine
+---|'etex'
+---|'tex'
+---|'core'
+---|'luatex'
 
 ---
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
+---Return a list of the primitives that originate from the engine(s)
+---given by the requested string value(s).
+---
+---The possible values and their (current)
+---return values are given in the following table. In addition the somewhat special
+---primitives “\tex{ ”}, “\tex {/”} and “`-`” are defined.
+---
+---Note that `luatex` does not contain `directlua`, as that is
+---considered to be a core primitive, along with all the *TeX*82 primitives, so it is
+---part of the list that is returned from `core`.
+---
+---Running `tex.extraprimitives()` will give you the complete list of
+---primitives `-ini` startup. It is exactly equivalent to `tex.extraprimitives("etex","luatex")`.
+---
+---* Corresponding C source code: [ltexlib.c#L2710-L2750](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L2710-L2750)
+---
+---@param ... TexEngine
+---
+---@return string[]
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+function tex.extraprimitives(...) end
+
+---
+---Return a list of all primitives that *LuaTeX* knows about.
+---
+---* Corresponding C source code: [ltexlib.c#L2691-L2708](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L2691-L2708)
+---
+---@return string[]
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+
 function tex.primitives() end
 
 ---
----This helper function is useful during linebreak calculations. `t` and `s` are scaled values; the function returns the badness for when total `t`
----is supposed to be made from amounts that sum to `s`. The returned number is
----a reasonable approximation of `100(t/s)^3`.
-function tex.badness() end
+---Calculate the badness.
+---
+---This helper function is useful during linebreak calculations. The function returns the badness for when total `total`
+---is supposed to be made from amounts that sum to `sum`. The returned number is
+---a reasonable approximation of `100(total/sum)^3`.
+---
+---* Corresponding C source code: [ltexlib.c#L3069-L3075](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3069-L3075)
+---* Corresponding C source code: [arithmetic.c#L275-L300](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/tex/arithmetic.c#L275-L300)
+---
+---@param total integer # scaled values
+---@param sum integer # scaled values
+---
+---@return integer badness
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+function tex.badness(total, sum) end
 
 ---
----This function resets the parameters that *TeX* normally resets when a new paragraph
+---Reset the parameters that *TeX* normally resets when a new paragraph
 ---is seen.
+---
+---* Corresponding C source code: [ltexlib.c#L3054-L3059](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3054-L3059)
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.resetparagraph() end
 
 ---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 ---@class LinebreakParameters
 ---@field pardir string
 ---@field pretolerance integer
@@ -2163,367 +3472,216 @@ function tex.resetparagraph() end
 ---
 ---@return Node
 ---@return table
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.linebreak(listhead, parameters) end
 
 ---
 ---Ships out box number `n` to the output file, and clears the box register.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.shipout() end
 
 ---
 ---This helper reports the current page state: `empty`, `box_there` or
 ---`inserts_only` as integer value.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.getpagestate() end
 
 ---
 ---This integer reports the current level of the local loop. It's only useful for
 ---debugging and the (relative state) numbers can change with the implementation.
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.getlocallevel() end
 
----
----For practical reasons *LuaTeX* has its own random number generator. The original
----*Lua* random function is available as `tex.lua_math_random`.
-function tex.lua_math_random() end
+-- { "uniform_rand",tex_unif_rand },
+-- { "normal_rand", tex_norm_rand },
+-- { "lua_math_randomseed", tex_init_rand }, /* syntactic sugar  */
 
 ---
----You can
----initialize with a new seed with `init_rand` (`lua_math_randomseed` is
----equivalent to this one.)
-function tex.init_rand() end
+---Initialize a new seed.
+---
+---`lua_math_randomseed` is
+---equivalent to this function.
+---
+---* Corresponding C source code: [ltexlib.c#L3132-L3142](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3132-L3142)
+---
+---@see tex.lua_math_randomseed
+---
+---@param seed integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+function tex.init_rand(seed) end
 
+---
+---Initialize a new seed.
+---
+---`init_rand` is
+---equivalent to this function.
+---
+---* Corresponding C source code: [ltexlib.c#L3132-L3142](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3132-L3142)
+---
+---@see tex.init_rand
+---
+---@param seed integer
 ---
 ---You can
 ---initialize with a new seed with `lua_math_randomseed` (`init_rand` is
 ---equivalent to this one.)
-function tex.lua_math_randomseed() end
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+function tex.lua_math_randomseed(seed) end
+
+---
+---For practical reasons *LuaTeX* has its own random number generator. This is the original
+---*Lua* random function.
+---
+---* Corresponding C source code: [ltexlib.c#L3164-L3192](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3164-L3192)
+---
+---@param lower number
+---@param upper number
+---
+---@return number
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+function tex.lua_math_random(lower, upper) end
+
+---
+---For practical reasons *LuaTeX* has its own random number generator. This is the original
+---*Lua* random function.
+---
+---* Corresponding C source code: [ltexlib.c#L3164-L3192](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3164-L3192)
+---
+---@param upper? number
+---
+---@return number
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+function tex.lua_math_random(upper) end
 
 ---
 ---no argument is used
+---
+---* Corresponding C source code: [ltexlib.c#L3156-L3160](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3156-L3160)
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.normal_rand() end
 
 ---
 ---takes a number that will get rounded before being used
+---
+---* Corresponding C source code: [ltexlib.c#L3144-L3154](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3144-L3154)
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.uniform_rand() end
 
 ---
 --- which behaves like the primitive and expects a scaled integer, so
 ---
----```
+---```lua
 ---tex.print(tex.uniformdeviate(65536)/65536)
 ---```
 ---
 ---will give a random number between zero and one.
-function tex.uniformdeviate() end
+---
+---* Corresponding C source code: [ltexlib.c#L2051-L2054](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L2051-L2054)
+---
+---@param n integer a scaled integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+function tex.uniformdeviate(n) end
 
 ---
----`0` is the default and used normal synctex logic, `1` uses the values set by the next helpers while `2` also sets these for glyph nodes; `3` sets glyphs and glue and `4` sets only glyphs
-function tex.set_synctex_mode() end
+---@alias SyntexMode
+---|0 # is the default and used normal synctex logic
+---|1 # uses the values set by the next helpers
+---|2 # sets for glyph nodes
+---|3 # sets glyph and glue nodes
+---|4 # sets only glyph modes
 
 ---
----set the current tag (file) value (obeys save stack)
-function tex.set_synctex_tag() end
+---* Corresponding C source code: [ltexlib.c#L3377-L3382](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3377-L3382)
+---
+---@param mode SyntexMode
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+function tex.set_synctex_mode(mode) end
 
 ---
----set the current line value (obeys save stack)
-function tex.set_synctex_line() end
-
+---Return the current mode.
 ---
----disable synctex file logging
-function tex.set_synctex_no_files() end
-
+---* Corresponding C source code: [ltexlib.c#L3383-L3387](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3383-L3387)
 ---
----returns the current mode (for values see above)
+---@return SyntexMode mode
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.get_synctex_mode() end
 
 ---
----get the currently set value of tag (file)
+---Set the current tag (file) value (obeys save stack).
+---
+---* Corresponding C source code: [ltexlib.c#L3389-L3394](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3389-L3394)
+---
+---@param tag integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+function tex.set_synctex_tag(tag) end
+
+---
+---Get the currently set value of a tag (file).
+---
+---* Corresponding C source code: [ltexlib.c#L3396-L3400](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3396-L3400)
+---
+---@return integer tag
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.get_synctex_tag() end
 
 ---
----get the currently set value of line
+---Overload the tag (file) value  (`0` resets).
+---
+---* Corresponding C source code: [ltexlib.c#L3402-L3407](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3402-L3407)
+---
+---@param tag integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+function tex.force_synctex_tag(tag) end
+
+---
+---Set the current line value (obeys save stack).
+---
+---* Corresponding C source code: [ltexlib.c#L3416-L3421](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3416-L3421)
+---
+---@param line integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+function tex.set_synctex_line(line) end
+
+---
+---Get the currently set value of a line.
+---
+---* Corresponding C source code: [ltexlib.c#L3423-L3427](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3423-L3427)
+---
+---@return integer line
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
 function tex.get_synctex_line() end
 
 ---
----overload the tag (file) value (`0` resets)
-function tex.force_synctex_line() end
+---Overload the line value (`0` resets)
+---
+---* Corresponding C source code: [L3409-L3414](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3409-L3414)
+---
+---@param line integer
+---
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+function tex.force_synctex_line(line) end
 
 ---
----overload the line value  (`0` resets)
-function tex.force_synctex_tag() end
-
+---Disable synctex file logging.
 ---
-------------------------------------------------------------------------
----Undocumented functions listed in alphabetical order
+---* Corresponding C source code: [ltexlib.c#L3429-L3434](https://github.com/TeX-Live/luatex/blob/f52b099f3e01d53dc03b315e1909245c3d5418d3/source/texk/web2c/luatexdir/lua/ltexlib.c#L3429-L3434)
 ---
----Document them by sliding them up and place them in the order of the
----official documentation
-------------------------------------------------------------------------
-
+---@param flag integer
 ---
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.forcehmode() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.get() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getbox() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getboxresourcebox() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getboxresourcedimensions() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getcatcode() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getdelcode() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getdelcodes() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getfontoffamily() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getlccode() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getlist() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getmark() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getmath() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getmathcode() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getmathcodes() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getmodevalues() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getnest() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getsfcode() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.getuccode() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.isbox() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.iscount() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.isdimen() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.isglue() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.ismuglue() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.ismuskip() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.isskip() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.istoks() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.quittoks() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.saveboxresource() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.scantoks() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.set() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.setbox() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.setcatcode() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.setdelcode() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.setlccode() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.setlist() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.setmath() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.setmathcode() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.setnest() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.setsfcode() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.setuccode() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.show_context() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.splitbox() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.triggerbuildpage() end
-
----
----Warning! Undocumented code!<p>
----TODO: Please contribute
----https://github.com/Josef-Friedrich/LuaTeX_Lua-API#how-to-contribute
-function tex.useboxresource() end
+---[Type definition and documentation](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/blob/main/library/luatex/tex.lua) incomplete or incorrect? [Please contribute!](https://github.com/Josef-Friedrich/LuaTeX_Lua-API/pulls)
+function tex.set_synctex_no_files(flag) end
