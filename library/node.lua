@@ -1867,7 +1867,7 @@ function node.next(n) end
 ---
 ---The intended usage of `current_attr` is as follows:
 ---
----```
+---```lua
 ---local x1 = node.new("glyph")
 ---x1.attr = node.current_attr()
 ---local x2 = node.new("glyph")
@@ -1876,7 +1876,7 @@ function node.next(n) end
 ---
 ---or:
 ---
----```
+---```lua
 ---local x1 = node.new("glyph")
 ---local x2 = node.new("glyph")
 ---local ca = node.current_attr()
