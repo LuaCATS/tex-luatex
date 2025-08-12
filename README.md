@@ -1,6 +1,6 @@
 # Definitions for LuaTeX
 
-Definitions for LuaTeX
+Definitions for [LuaTeX](https://www.luatex.org)
 
 TeXLuaCats-Repository: https://github.com/TeXLuaCATS/LuaTeX (upstream)
 
