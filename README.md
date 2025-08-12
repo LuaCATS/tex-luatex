@@ -2,9 +2,9 @@
 
 Definitions for [LuaTeX](https://www.luatex.org)
 
-TeXLuaCats-Repository: https://github.com/TeXLuaCATS/LuaTeX (upstream)
+TeXLuaCATS-Repository: https://github.com/TeXLuaCATS/LuaTeX (upstream)
 
-LuaCats-Repository: https://github.com/LuaCATS/tex-luatex (downstream)
+LuaCATS-Repository: https://github.com/LuaCATS/tex-luatex (downstream)
 
 ## About the documented project
 
